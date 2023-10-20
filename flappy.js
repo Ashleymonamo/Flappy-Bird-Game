@@ -19,6 +19,19 @@ let bird=
     height:birdHeight
 }
 
+//pipes info
+let pipeArray=[];
+let pipeWidth=64;
+let pipeHeight=512;
+let pipeX=bWidth;
+let pipeY=0;
+
+//pipe images
+let topPipeImg;
+let bottomPipeImg;
+
+//movement of pipes
+let velocityX = -2;
 
 
 window.onload=function() {
@@ -35,11 +48,19 @@ window.onload=function() {
     birdImg=new Image();
     birdImg.src="./images/bird.jpg";
     birdImg.onload=function(){
-        
-    
     context.drawImage(birdImg,bird.x,bird.y,bird.width,bird.height);
     }
-    requestAnimationFrame(update);
+
+    //top pipe
+topPipeImg=new Image();
+topPipeImg.src="./images/top2.png";
+
+//bottom pipe
+bottomPipeImg=new Image();
+bottomPipeImg.src="./images/bottom2.png";
+
+  requestAnimationFrame(update);
+  setInterval(placePipes,1500);
 }
 
 function update() {
@@ -48,4 +69,25 @@ function update() {
 
     //bird
     context.drawImage(birdImg,bird.x,bird.y,bird.width,bird.height);
+
+
+//pipes array
+for (let i = 0; i < pipeArray.length; i++) {
+  let pipe=pipeArray[i];
+  pipe.x += velocityX;
+  context.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height);
+    
+}
+}
+function placePipes() {
+    let topPipe=
+    {
+        img:topPipeImg,
+        x:pipeX,
+        y:pipeY,
+       width:pipeWidth,
+       height:pipeHeight,
+       passed:false
+    }
+    pipeArray.push(topPipe);
 }
