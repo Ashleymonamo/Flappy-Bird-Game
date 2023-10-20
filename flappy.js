@@ -69,11 +69,11 @@ bottomPipeImg.src="./images/bttm2.png";
 
 function update() {
     requestAnimationFrame(update);   
-    context.clearRect(0,0,board.bWidth,board.bHeight);
+    context.clearRect(0,0,board.width,board.height);
 
     //bird
-    velocityY += gravity;
-    bird.y += velocityY;
+    // velocityY += gravity;
+    // bird.y += velocityY;
     context.drawImage(birdImg,bird.x,bird.y,bird.width,bird.height);
 
 
@@ -111,9 +111,9 @@ let openingSpace=board.height/4;
     pipeArray.push(bottomPipe);
 }
 
-function moveBird(e) {
-    if (e.code=="Space" ||e.code=="ArrowUp" || e.code=="KeyX") {
-        //jump
-        velocityY = -6;
-    }
-}
+// function moveBird(e) {
+//     if (e.code=="Space" ||e.code=="ArrowUp" || e.code=="KeyX") {
+//         //jump
+//         velocityY = -6;
+//     }
+// }
