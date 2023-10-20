@@ -1,0 +1,13 @@
+:root{
+    --background-clr:skyblue;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+   text-align: center; 
+}
+#board
+{
+  /* background-color: var(--background-clr); */
+    background-image: url("./images/bg3.png");
+}
